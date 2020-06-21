@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = [
 ]
 setuptools.setup(
   name="litNlp",
-  version="0.6.0",
+  version="0.6.1",
   packages=['litNlp'],
   author="carrychang",
   author_email="coolcahng@gmail.com",
@@ -33,7 +33,7 @@ setuptools.setup(
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ),
-  license="MIT",
+  license="Apache-2.0 License",
   keywords=['text classification', 'nlp','batch predict',
               'deep learning', 'tensorflow', 'ml',],
 )
