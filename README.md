@@ -19,6 +19,6 @@ litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,
     print([i[1] for i in sa_score])
     
 # jupyter 加载
-> 1. 通过高频词可视化展示，归纳出评论主题
+> 1. 情感分析，优化语义的情感推理
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/tools.png"></div>
  
