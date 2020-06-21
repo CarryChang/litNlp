@@ -15,7 +15,7 @@ setuptools.setup(
   include_package_data=True,
   description='A tool for text classification system with tensorflow ',
   long_description='litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,支持多分类，并默认二分类，是搭建文本分类模型的快速方案',
-  install_requires=['tensorflow>=2.0.0', 'numpy==1.17.0'],
+  install_requires=['tensorflow==2.0.0', 'numpy==1.17.0'],
   python_requires=">=3.4",
   zip_safe=True,
   classifiers=(
