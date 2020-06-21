@@ -10,10 +10,10 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input
 from model_structure.conf import *
 class sa_model:
-    def create_model(self):
+    def create_model(self,max_words,embedding_dim,maxlen):
         # 使用model模式
         main_input = Input(shape=(maxlen,), dtype='float64')
-        embedder = Embedding(max_words + 1, 300, input_length=maxlen)
+        embedder = Embedding(max_words + 1, embedding_dim, input_length=maxlen)
         embed = embedder(main_input)
         # 3,4,5 windows
         cnn1 = Convolution1D(256, 3, padding='same', strides=1, activation='relu')(embed)
@@ -30,7 +30,7 @@ class sa_model:
         model = Model(inputs=main_input, outputs=main_output)
         model.compile(loss='binary_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
-if __name__ == '__main__':
-    model = sa_model()
-    sa = model.create_model()
-    sa.summary()
+# if __name__ == '__main__':
+#     model = sa_model()
+#     sa = model.create_model()
+#     sa.summary()

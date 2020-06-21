@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from . import predict
-
+from . import train
 # class litNlp(object):
 #     def __init__(self, doc):
 #         self.doc = doc

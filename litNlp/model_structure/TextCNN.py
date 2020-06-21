@@ -10,7 +10,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input
 from model_structure.conf import *
 class sa_model:
-    def create_model(self):
+    def create_model(self,max_words,embedding_dim,maxlen):
         model = Sequential()
         #  embedding layer
         model.add(Embedding(max_words, embedding_dim, input_length=maxlen))
@@ -22,7 +22,7 @@ class sa_model:
         model.add(Dense(1,  activation='sigmoid'))
         model.compile(loss='binary_crossentropy',optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
-if __name__ == '__main__':
-    model = sa_model()
-    sa = model.create_model()
-    sa.summary()
+# if __name__ == '__main__':
+#     model = sa_model()
+#     sa = model.create_model()
+#     sa.summary()

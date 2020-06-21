@@ -5,51 +5,50 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import to_categorical
-from model_structure.TextCNN_m import sa_model
-from model_structure.conf import *
+from .model_structure.TextCNN_m import sa_model
 from sklearn import metrics
-import pandas as pd
 import numpy as np
 import pickle
-import shutil
-import os
-class SA:
-    def __init__(self):
+class SA_Model_Train:
+    def __init__(self, max_words, embedding_dim,maxlen,tokenize_path,sa_model_path_m):
         self.init_model = sa_model()
-        self.model = self.init_model.create_model()
-        self.max_words = self.init_model.create_model()
-        self.train_data = self.init_model.create_model()
-        self.model = self.init_model.create_model()
-    def train_tk(self,max_words=self.max_words):
-        tokenizer = Tokenizer(filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n', num_words=max_words)
-        tokenizer.fit_on_texts(self.train_data['text_cut'])
-        # # rebuild
-        # shutil.rmtree(model_path)
-        # os.mkdir(model_path)
-        # tokenizer save
-        with open(tokenize_path, 'wb') as tokenize:
+        self.max_words = max_words
+        self.tokenize_path = tokenize_path
+        self.embedding_dim = embedding_dim
+        self.maxlen = maxlen
+        self.sa_model_path_m = sa_model_path_m
+        self.model = self.init_model.create_model(self.max_words,self.embedding_dim, self.maxlen)
+    def train_tk(self,train_data):
+        tokenizer = Tokenizer(filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n', num_words=self.max_words)
+        tokenizer.fit_on_texts(train_data)
+        with open(self.tokenize_path, 'wb') as tokenize:
             pickle.dump(tokenizer, tokenize)
         return tokenizer
-    def train(self,x_train,x_test):
-        self.model.fit(x_train, x_test, batch_size=256, epochs=10, validation_split=0.2,
-                            callbacks=[EarlyStopping(monitor='val_loss', min_delta=0.0001)])
-        # 使用多分类地址
-        self.model.save(sa_model_path_m)
+    def train(self,train_data,label,num_classes,batch_size=256,epochs=10,verbose=1,evaluate=True):
+        # to_categorical
+        targets_values = to_categorical(label, num_classes=num_classes)
+        # data split
+        x_train, y_train, x_test, y_test = train_test_split(train_data, targets_values, test_size=0.2, random_state=1)
+        # pad_sequences
+        tokenizer = self.train_tk(train_data)
+        x_train, x_test = pad_sequences(tokenizer.texts_to_sequences(x_train), self.maxlen), np.array(x_test)
+        y_train, y_test = pad_sequences(tokenizer.texts_to_sequences(y_train), self.maxlen), np.array(y_test)
+        self.model.fit(x_train, x_test, batch_size, epochs, verbose,
+                       validation_split=0.2, callbacks=[EarlyStopping(monitor='val_loss', min_delta=0.0001)])
+        self.model.save(self.sa_model_path_m)
         try:
             pre_result = self.model.predict(y_train, batch_size=256, verbose=0)
         except:
             result_ = self.model.predict_classes(y_train, batch_size=256, verbose=0)
             pre_result = np.argmax(result_, axis=1)
-        return pre_result
-    def evaluate(self,result,y_test):
-        result = [np.argmax(i) for i in result]
-        y_test = [np.argmax(i) for i in y_test]
-        report = metrics.classification_report(y_test, result)
-        # acc auc
-        acc = metrics.accuracy_score(y_test, result)
-        auc = metrics.roc_auc_score(y_test, result)
-        print('acc:{}-auc:{}'.format(acc, auc))
-        print(report)
+        if evaluate:
+            result = [np.argmax(i) for i in pre_result]
+            y_test = [np.argmax(i) for i in y_test]
+            report = metrics.classification_report(y_test, result)
+            acc = metrics.accuracy_score(y_test, result)
+            auc = metrics.roc_auc_score(y_test, result)
+            print(report)
+            print('acc:  {}    auc:  {}'.format(acc, auc))
 # if __name__ == '__main__':
 #     # C-CNN-SA(字符级卷积网络)
 #     train_data = pd.read_csv('data/sa_data_train.csv')
