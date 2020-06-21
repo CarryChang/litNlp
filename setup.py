@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = [
 ]
 setuptools.setup(
   name="litNlp",
-  version="0.6.10",
+  version="0.6.12",
   packages=['litNlp'],
   author="carrychang",
   author_email="coolcahng@gmail.com",
