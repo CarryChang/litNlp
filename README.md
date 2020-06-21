@@ -5,7 +5,8 @@ litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,
 1. 内置情感分类模型
 
 # 使用方法
->pip install  litNlp
+> pip install  litNlp
+> 模型保存在litNlp的sa_model里面，需要下载之后进行加载
 
     from litNlp.predict import SA_Model_Predict
     # 批处理文本
@@ -13,6 +14,6 @@ litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,
     # 初始化并加载模型
     tokenizer_path = 'sa_model/tokenizer.pickle'
     sa_model_path = 'sa_model/c_cnn_m.h5'
-    model = SA_Model_Predict(tokenizer_path)
-    sa_score = model.predict(predict_text,sa_model_path_m=sa_model_path)
+    model = SA_Model_Predict(tokenizer_path,sa_model_path_m=sa_model_path)
+    sa_score = model.predict(predict_text)
     print([i[1] for i in sa_score])
