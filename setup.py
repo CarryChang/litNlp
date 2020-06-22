@@ -7,9 +7,8 @@ REQUIRED_PACKAGES = [
 ]
 setuptools.setup(
   name="litNlp",
-  version="0.8.0",
-  # packages=['litNlp'],
-  packages=setuptools.find_packages(exclude=["litNlp", "litNlp.model_structure",]),
+  version="0.8.1",
+  packages=['litNlp', 'litNlp.model_structure'],
   author="CarryChang",
   author_email="coolcahng@gmail.com",
   url='https://github.com/CarryChang/litNlp',
@@ -40,7 +39,7 @@ setuptools.setup(
     },
   entry_points={
     },
-  license="Apache-2.0 License",
+  license="Apache-2.0",
   keywords=['text classification', 'nlp','batch predict',
               'deep learning', 'tensorflow', 'ml',],
 )
