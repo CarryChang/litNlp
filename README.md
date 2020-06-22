@@ -1,4 +1,5 @@
- 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 # litNlp
 ## 简介
 litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,num默认2分类，

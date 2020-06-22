@@ -10,7 +10,7 @@ from sklearn import metrics
 import numpy as np
 import pickle
 class SA_Model_Train:
-    def __init__(self, max_words, embedding_dim,maxlen,tokenize_path,sa_model_path_m):
+    def __init__(self, max_words, embedding_dim, maxlen, tokenize_path, sa_model_path_m):
         self.init_model = TextCNN_m()
         self.max_words = max_words
         self.tokenize_path = tokenize_path

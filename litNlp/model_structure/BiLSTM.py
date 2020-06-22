@@ -8,7 +8,7 @@ from tensorflow.keras.models import Sequential, Model
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import concatenate,Bidirectional,Activation,MaxPool1D,Input,LSTM
-class BILSTM:
+class BILSTM_Model:
     def create_model(self,max_words,embedding_dim,maxlen):
         model = Sequential()
         #  embedding layer

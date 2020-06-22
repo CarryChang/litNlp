@@ -6,8 +6,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.optimizers import Adam,RMSprop
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input,GRU
-from model_structure.conf import *
-class GRU:
+class GRU_Model:
     def create_model(self,max_words,embedding_dim,maxlen):
         model = Sequential()
         #  embedding layer
@@ -16,7 +15,7 @@ class GRU:
         model.add(GRU(units=32, return_sequences=True))
         model.add(GRU(units=16, return_sequences=False))
         model.add(Dense(1,  activation='sigmoid'))
-        model.compile(loss='binary_crossentropy',optimizer=Adam(lr=1e-3), metrics=['accuracy'])
+        model.compile(loss='binary_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
 # if __name__ == '__main__':
 #     model = sa_model()
