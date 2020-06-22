@@ -2,14 +2,14 @@
 
 # litNlp
 ## 简介
-litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,num默认2分类，
+litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,类别默认2分类，
 GPU和CPU平台通用，是搭建文本分类模型baseline的快速方案。
 1. 内置情感分析模型-利用深度模型优化语义建模，使用字符级减少tokenizer的大小
 2. 直接提供模型训练，默认Text-CNN字符级卷积网络作为baseline，自带早停操作，使用少的参数即可开始训练多分类模型
 
 # 使用方法
 > 1. pip install  litNlp
-> 2. 模型保存在litNlp的sa_model里面，需要下载之后进行加载
+> 2. 模型需要先通过训练，保存在sa_model里面，然后就可以批预测，具体的使用见example文件内容
 
     from litNlp.predict import SA_Model_Predict
     # 批处理文本
