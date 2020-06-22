@@ -49,3 +49,4 @@ GPU和CPU平台通用，是搭建文本分类模型baseline的快速方案。
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/tools.png"></div>
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/auc.png"></div>
  
+### [pipy code](https://pypi.org/project/litNlp/)
