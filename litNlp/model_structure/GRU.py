@@ -7,7 +7,7 @@ from tensorflow.keras.optimizers import Adam,RMSprop
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input,GRU
 from model_structure.conf import *
-class sa_model:
+class GRU:
     def create_model(self,max_words,embedding_dim,maxlen):
         model = Sequential()
         #  embedding layer
