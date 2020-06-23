@@ -2,8 +2,11 @@
 # @Time: 2020/6/21 0021 20:46
 import pandas as pd
 from litNlp.train import SA_Model_Train
-train_data = pd.read_csv('data/e_comment.csv')
-# data process
+# e_comment
+# train_data = pd.read_csv('data/ebusiness_comment.csv')
+# hotel
+train_data = pd.read_csv('data/hotel_comment.csv')
+# data processs
 train_data['text_cut'] = train_data['text'].apply(lambda x: " ".join(list(x)))
 # 最大句子长度
 maxlen = 100
