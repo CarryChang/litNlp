@@ -34,7 +34,7 @@ GPU和CPU平台通用，是搭建文本分类模型baseline的快速方案。
     tokenize_path ='sa_model/tokenizer.pickle'
     # 分类的类别数
     num_classes = 2
-# 10的epoch 的二分类性能
+# 2个epoch 的二分类性能
               precision    recall  f1-score   support
 
            0       0.94      0.90      0.92      3758

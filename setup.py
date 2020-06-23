@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = [
 ]
 setuptools.setup(
   name="litNlp",
-  version="0.8.1",
+  version="0.8.2",
   packages=['litNlp', 'litNlp.model_structure'],
   author="CarryChang",
   author_email="coolcahng@gmail.com",
@@ -15,7 +15,7 @@ setuptools.setup(
   include_package_data=True,
   description='A fast tool for text classification model with tensorflow ',
   long_description='litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,支持多分类，并默认二分类，是搭建文本分类模型的快速方案',
-  install_requires=['tensorflow==2.0.0', 'numpy==1.17.0', 'pandas', 'sklearn'],
+  install_requires=['tensorflow==2.0.1', 'numpy==1.17.0', 'pandas', 'sklearn'],
   python_requires=">=3.4",
   zip_safe=True,
   classifiers=(
