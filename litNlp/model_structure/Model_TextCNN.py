@@ -8,7 +8,6 @@ from tensorflow.keras.models import Sequential, Model
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input
-from model_structure.conf import *
 class sa_model:
     def create_model(self,max_words,embedding_dim,maxlen):
         # 使用model模式

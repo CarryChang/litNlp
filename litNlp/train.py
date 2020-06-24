@@ -5,19 +5,27 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import to_categorical
+from .model_structure.BiLSTM import BILSTM_Model
+from .model_structure.GRU import GRU_Model
 from .model_structure.TextCNN_m import TextCNN_m
 from sklearn import metrics
 import numpy as np
 import pickle
 class SA_Model_Train:
-    def __init__(self, max_words, embedding_dim, maxlen, tokenize_path, sa_model_path_m):
-        self.init_model = TextCNN_m()
+    def __init__(self, max_words, embedding_dim, maxlen, tokenize_path, sa_model_path_m, train_method=''):
+        if train_method == 'gru':
+            self.init_model = GRU_Model()
+        elif train_method == 'bilstm':
+            self.init_model = BILSTM_Model()
+        else:
+            # 默认textcnn
+            self.init_model = TextCNN_m()
         self.max_words = max_words
         self.tokenize_path = tokenize_path
         self.embedding_dim = embedding_dim
         self.maxlen = maxlen
         self.sa_model_path_m = sa_model_path_m
-        self.model = self.init_model.create_model(self.max_words,self.embedding_dim, self.maxlen)
+        self.model = self.init_model.create_model(self.max_words, self.embedding_dim, self.maxlen)
     def train_tk(self,train_data):
         tokenizer = Tokenizer(filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n', num_words=self.max_words)
         tokenizer.fit_on_texts(train_data)

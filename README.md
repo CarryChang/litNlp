@@ -34,6 +34,8 @@ GPU和CPU平台通用，是搭建文本分类模型baseline的快速方案。
     tokenize_path ='sa_model/tokenizer.pickle'
     # 分类的类别数
     num_classes = 2
+    # train_method : 模型训练方式，默认textcnn，可选：bilstm , gru
+    train_method = 'textcnn'
 # 2个epoch 的二分类性能
 
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/auc_2poch.png"></div>
