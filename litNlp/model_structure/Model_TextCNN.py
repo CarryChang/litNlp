@@ -25,9 +25,9 @@ class sa_model:
         cnn = concatenate([cnn1, cnn2, cnn3], axis=-1)
         flat = Flatten()(cnn)
         drop = Dropout(0.5)(flat)
-        main_output = Dense(1, activation='sigmoid')(drop)
+        main_output = Dense(2, activation='softmax')(drop)
         model = Model(inputs=main_input, outputs=main_output)
-        model.compile(loss='binary_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
+        model.compile(loss='sparse_categorical_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
 # if __name__ == '__main__':
 #     model = sa_model()

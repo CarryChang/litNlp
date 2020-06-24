@@ -34,8 +34,8 @@ setuptools.setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ),
   extras_require={
-        "cpu": ["tensorflow==2.0.0"],
-        "gpu": ["tensorflow-gpu==2.0.0"],
+        "cpu": ["tensorflow==2.0.1"],
+        "gpu": ["tensorflow-gpu==2.0.1"],
     },
   entry_points={
     },
