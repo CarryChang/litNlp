@@ -14,7 +14,7 @@ setuptools.setup(
   url='https://github.com/CarryChang/litNlp',
   include_package_data=True,
   description='A fast tool for text classification model with tensorflow ',
-  long_description='litNlp是基于Tensorflow2.0实现的一个轻量级的深度文本分类模型,支持多分类，并默认二分类，是搭建文本分类模型的快速方案',
+  long_description='litNlp是基于Tensorflow2.0实现的一个轻量级的深度情感极性推理模型，可以实现细粒度的多级别情感极性训练和预测。 GPU和CPU平台通用，是搭建文本分类模型baseline的快速方案。',
   install_requires=REQUIRED_PACKAGES,
   python_requires=">=3.4",
   zip_safe=True,
