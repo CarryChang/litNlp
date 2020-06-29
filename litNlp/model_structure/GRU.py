@@ -17,7 +17,3 @@ class GRU_Model:
         model.add(Dense(2,  activation='softmax'))
         model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
-# if __name__ == '__main__':
-#     model = sa_model()
-#     sa = model.create_model()
-#     sa.summary()

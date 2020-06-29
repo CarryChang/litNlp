@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = [
 ]
 setuptools.setup(
   name="litNlp",
-  version="0.8.4",
+  version="0.8.5",
   packages=['litNlp', 'litNlp.model_structure'],
   author="CarryChang",
   author_email="coolcahng@gmail.com",
