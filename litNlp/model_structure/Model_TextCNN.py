@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.layers import concatenate,GlobalAveragePooling1D,Activation,MaxPool1D,Input
 class sa_model:
-    def create_model(self,max_words,embedding_dim,maxlen):
+    def create_model(self, max_words, embedding_dim, maxlen, n_class=2):
         # 使用model模式
         main_input = Input(shape=(maxlen,), dtype='float64')
         embedder = Embedding(max_words + 1, embedding_dim, input_length=maxlen)
@@ -25,7 +25,7 @@ class sa_model:
         cnn = concatenate([cnn1, cnn2, cnn3], axis=-1)
         flat = Flatten()(cnn)
         drop = Dropout(0.5)(flat)
-        main_output = Dense(2, activation='softmax')(drop)
+        main_output = Dense(n_class, activation='softmax')(drop)
         model = Model(inputs=main_input, outputs=main_output)
         model.compile(loss='sparse_categorical_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model

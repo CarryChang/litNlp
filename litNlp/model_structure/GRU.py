@@ -5,7 +5,7 @@ from tensorflow.keras.optimizers import Adam,RMSprop
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Activation,MaxPool1D,Input,GRU
 class GRU_Model:
-    def create_model(self,max_words,embedding_dim,maxlen):
+    def create_model(self, max_words, embedding_dim, maxlen, n_class=2):
         model = Sequential()
         #  embedding layer
         model.add(Embedding(max_words, embedding_dim, input_length=maxlen))
@@ -14,6 +14,6 @@ class GRU_Model:
         model.add(GRU(units=16, return_sequences=False))
         model.add(Dense(512, activation='relu'))
         model.add(Dropout(0.5))
-        model.add(Dense(2,  activation='softmax'))
+        model.add(Dense(n_class,  activation='softmax'))
         model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model

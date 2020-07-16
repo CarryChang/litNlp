@@ -5,7 +5,7 @@ from tensorflow.keras.optimizers import Adam,RMSprop
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import GlobalAveragePooling1D,Activation,MaxPooling1D,Input
 class TextCNN_m:
-    def create_model(self,max_words,embedding_dim, maxlen):
+    def create_model(self,max_words,embedding_dim, maxlen, n_class=2):
         model = Sequential()
         #  embedding layer
         model.add(Embedding(max_words, embedding_dim, input_length=maxlen))
@@ -15,6 +15,6 @@ class TextCNN_m:
         model.add(Flatten())
         model.add(Dense(512, activation='relu'))
         model.add(Dropout(0.5))
-        model.add(Dense(2,  activation='softmax'))
+        model.add(Dense(n_class,  activation='softmax'))
         model.compile(loss='categorical_crossentropy', optimizer=Adam(lr=1e-3), metrics=['accuracy'])
         return model
