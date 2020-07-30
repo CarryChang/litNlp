@@ -1,11 +1,13 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
-# litNlp
-## 简介
-litNlp 是基于 Tensorflow 2.0 实现的一个轻量级的深度情感极性推理模型，可以实现细粒度的多级别情感极性训练和预测。
-TF2 下 GPU 和 CPU 平台都能直接安装运行，是搭建文本分类模型 baseline 的快速方案。
-1. 内置情感分析模型-利用深度模型优化语义建模，使用字符级减少 tokenizer 的大小
-2. 直接提供模型训练，默认 Text-CNN 字符级卷积网络作为 baseline ，自带早停操作，使用少的参数即可开始训练多分类模型
+# litNlp 简介
+
+litNlp 是基于 Tensorflow 2.0 实现的一个轻量级的深度情感极性推理模型，使用字符级代替词语级进一步提升训练和推理速度，可以实现细粒度的多级别情感极性训练和预测。
+
+	TF2 下 GPU 和 CPU 平台都能直接安装运行，是搭建文本分类模型 baseline 的快速方案。
+
+	1. 内置情感分析模型-利用深度模型优化语义建模，使用字符级减少 tokenizer 的大小。
+	2. 直接提供模型训练，默认 Text-CNN 字符级卷积网络作为 baseline ，自带早停操作，使用少的参数即可开始训练多分类模型。
 
 ## 直接使用 emample/sa_ui.py 进行前端 ui 展示效果
 
