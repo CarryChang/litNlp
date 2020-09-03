@@ -1,3 +1,9 @@
+<div align="center">
+  <img src="https://github.com/CarryChang/litNlp/blob/master/pic/logo.png"><br>
+</div>
+
+-----------------
+# litNlp: A fast tool for sentiment analysis model with tensorflow2.0
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 [![PyPI Latest Release](https://img.shields.io/pypi/v/litNlp.svg)](https://pypi.org/project/litNlp/)
 [![Downloads](https://pepy.tech/badge/litnlp)](https://pepy.tech/project/litnlp)
