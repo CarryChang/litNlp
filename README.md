@@ -1,4 +1,5 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/litNlp.svg)](https://pypi.org/project/litNlp/)
 [![Downloads](https://pepy.tech/badge/litnlp)](https://pepy.tech/project/litnlp)
 [![Downloads](https://pepy.tech/badge/litnlp/month)](https://pepy.tech/project/litnlp/month)
 [![Downloads](https://pepy.tech/badge/litnlp/week)](https://pepy.tech/project/litnlp/week)
