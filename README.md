@@ -11,6 +11,7 @@ litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感
 
 	1. 内置情感分析模型-利用深度模型优化语义建模，使用字符级减少 tokenizer 的大小。
 	2. 直接提供模型训练，默认 Text-CNN 字符级卷积网络作为 baseline ，自带早停操作，使用少的参数即可开始训练多分类模型。
+	3. 使用 Streamlit 快速对模型进行 UI 演示。
 
 ## 直接使用 emample/sa_ui.py 进行前端 ui 展示效果
 
