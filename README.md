@@ -7,9 +7,7 @@
 
 # litNlp 简介
 
-litNlp 是基于 Tensorflow 2.0 实现的一个轻量级的深度情感极性推理模型，使用字符级代替词语级进一步提升训练和推理速度，可以实现细粒度的多级别情感极性训练和预测。
-
-	TF2 下 GPU 和 CPU 平台都能直接安装运行，是搭建 NLP 分类模型类 baseline 的快速方案。
+litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感极性推理模型，使用字符级代替词语级进一步提升训练和推理速度，可以实现细粒度的多级别情感极性训练和预测，TF2 下 GPU 和 CPU 平台都能直接安装运行，是搭建 NLP 情感分析和分类模型 Baseline 的快速方案。
 
 	1. 内置情感分析模型-利用深度模型优化语义建模，使用字符级减少 tokenizer 的大小。
 	2. 直接提供模型训练，默认 Text-CNN 字符级卷积网络作为 baseline ，自带早停操作，使用少的参数即可开始训练多分类模型。
@@ -20,6 +18,7 @@ litNlp 是基于 Tensorflow 2.0 实现的一个轻量级的深度情感极性推
     # 安装 streamlit 之后直接运行脚本
     streamlit run sa_ui.py
 ```
+
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/ui.png"></div>
 
 ## 使用方法
@@ -63,5 +62,3 @@ litNlp 是基于 Tensorflow 2.0 实现的一个轻量级的深度情感极性推
 ## jupyter 加载
 >  情感分析，优化语义的情感推理
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/tools.png"></div>
- 
-### [pipy code](https://pypi.org/project/litNlp/)
