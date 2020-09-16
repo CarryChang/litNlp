@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from litNlp.predict import SA_Model_Predict
 import streamlit as st
+
 # 初始化模型
 tokenize_path = 'model/tokenizer.pickle'
 sa_model_path_m = 'model/model.h5'
@@ -18,16 +19,14 @@ if comment_input != '':
     with st.spinner('Predicting...'):
         sa_score = float(model.predict([comment])[0][1])
         show_data = dict()
+        show_data['status'] = 1
+        show_data['sa_score'] = sa_score
         if sa_score > 0.5:
             show_data['label'] = '积极'
-            show_data['sa_score'] = sa_score
         elif sa_score < 0.5:
             show_data['label'] = '消极'
-            show_data['sa_score'] = sa_score
         else:
             show_data['label'] = '中性'
-            show_data['sa_score'] = sa_score
-        show_data['status'] = 1
     # 最后展示内容
     st.write('分析结果: ')
     st.write(show_data)

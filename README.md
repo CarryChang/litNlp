@@ -67,5 +67,11 @@ litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/auc_2poch.png"></div>
 
 ## jupyter 加载
+
 >  情感分析，优化语义的情感推理
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/tools.png"></div>
+
+## Flask 模型部署
+python sa_server.py 即可对训练的情感分析模型进行部署，模型首次推理需要预热，后续推理耗时在 200ms 之内。
+
+<div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/server.png"></div>
