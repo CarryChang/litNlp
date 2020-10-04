@@ -29,7 +29,7 @@ class sa_post_api(Resource):
             show_data['label'] = '消极'
         else:
             show_data['label'] = '中性'
-        print(show_data)
+        # print(show_data)
         return show_data
 
 
