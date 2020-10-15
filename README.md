@@ -75,3 +75,34 @@ litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感
 python sa_server.py 即可对训练的情感分析模型进行部署，模型首次推理需要预热，后续推理耗时在 200ms 之内。
 
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/server.png"></div>
+
+## Tensorflow Serving 模型部署
+
+利用 python example/sa_model2tf_serving_model.py 进行模型转换之后即可直接进行部署。
+
+首先 Tensorflow Serving Docker
+
+    docker pull tensorflow/serving:2.3.0
+    
+直接利用 Docker 加载转换之后的模型即可完成模型部署，TensorFlow Serving 会自动选择版本号最大的模型进行载入。
+
+调试模式
+
+    docker run -t --rm -p 9500:8500 -p:9501:8501 \
+    -v "$(pwd)/tf_model/:/models/textcnn" \
+    -e MODEL_NAME=textcnn -tensorflow_inter_op_parallelism=4 \
+    tensorflow/serving:2.3.0
+    
+生成环境下的后台部署使用
+
+    docker run -d --rm -p 9500:8500 -p:9501:8501 \
+    -v "$(pwd)/tf_model/:/models/textcnn" \
+    -e MODEL_NAME=textcnn -tensorflow_inter_op_parallelism=4 \
+    tensorflow/serving:2.3.0
+
+    
+部署之后使用 python sa_tf_serving_api_post.py 进行模型的调用。
+
+## 优化建议
+1. TF Serving 可以优化为 prediction_service.proto（预测服务）。
+这避免了引入服务中定义的其他RPC的嵌套依赖关系
