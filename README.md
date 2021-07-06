@@ -36,8 +36,6 @@ litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感
 > 2. 模型需要先通过训练，保存在 sa_model 里面，然后就可以批预测，具体的使用见 example 文件内容
 
 ```python
-    
-
 	from litNlp.predict import SA_Model_Predict
 	import numpy as np
 	
@@ -82,19 +80,19 @@ litNlp 是兼容最新版 Tensorflow 2.0 实现的一个轻量级的深度情感
 
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/auc_2poch.png"></div>
 
-## jupyter 加载
+## jupyter 实验
 
 >  情感分析，优化语义的情感推理
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/tools.png"></div>
 
-## Flask 模型部署
+## Flask Gunicorn 模型部署
 python sa_server.py 即可对训练的情感分析模型进行部署，模型首次推理需要预热，后续推理耗时在 200ms 之内。
 
 <div align=center><img  src="https://github.com/CarryChang/litNlp/blob/master/pic/server.png"></div>
 
 ## Tensorflow Serving 模型部署
 
-利用 python example/sa_model2tf_serving_model.py 进行模型转换之后即可直接进行部署。
+利用 python example/sa_model2tf_serving_model.py 进行模型转换之后即可直接进行 TF Serving 的服务部署。
 
 首先拉取对应版本的 TF Serving Docker
 
@@ -118,6 +116,7 @@ Docker 命令行的 Pro 启动模式
     tensorflow/serving:2.3.0
 
 或者在 yml 所在的文件夹下增加直接使用 docker-compose up 进行服务的启动。
-    
+
+服务请求： 
 部署之后使用 python sa_tf_serving_api_client.py 进行 TF serving 服务的调用。
  
