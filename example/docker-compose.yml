@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  tfserving_predict:
+    image: tensorflow/serving:2.3.0
+    environment:
+      MODEL_NAME: textcnn
+    ports:
+      - 9500:8500
+      - 9501:8501
+    volumes:
+      - ./tf_model/:/models/textcnn
+    restart: on-failure
+    entrypoint:
+      - /usr/bin/tf_serving_entrypoint.sh
+      - --tensorflow_inter_op_parallelism=2
+ 
