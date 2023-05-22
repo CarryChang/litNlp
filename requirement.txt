@@ -1,3 +1,5 @@
 tensorflow>=2.0.1
 streamlit
 docker-compose
+scikit-learn
+pandas
